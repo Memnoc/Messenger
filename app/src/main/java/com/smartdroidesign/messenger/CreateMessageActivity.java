@@ -21,9 +21,12 @@ public class CreateMessageActivity extends AppCompatActivity {
 //        Intent intent = new Intent(this, ReceiveMessageActivity.class);
 //        intent.putExtra("message", messageText);
         // Implicit intent -> send an intent that contains an actions that can be performed by suitable apps
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(ReceiveMessageActivity.EXTRA_MESSAGE, messageText);
-        startActivity(intent);
+        Intent intent = new Intent(Intent.ACTION_SEND); intent.setType("text/plain");
+//        intent.putExtra(ReceiveMessageActivity.EXTRA_MESSAGE, messageText);
+        intent.putExtra(Intent.EXTRA_TEXT, messageText);
+        String chooserTitle = getString(R.string.chooser);
+        Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
+        startActivity(chosenIntent);
+//        startActivity(intent);
     }
 }
