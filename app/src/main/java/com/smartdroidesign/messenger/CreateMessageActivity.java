@@ -1,5 +1,6 @@
 package com.smartdroidesign.messenger;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,5 +14,7 @@ public class CreateMessageActivity extends AppCompatActivity {
     }
 
     public void sendMessage(View view) {
+        Intent intent = new Intent(this, ReceiveMessageActivity.class);
+        startActivity(intent);
     }
 }
